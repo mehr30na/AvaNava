@@ -1,0 +1,162 @@
+page-media {
+
+  * {
+    direction: ltr;
+  }
+
+  .eslimall {
+    background-image: url('../../assets/img/eslimall.png');
+    background-repeat: no-repeat;
+    background-size: 80vw;
+
+  }
+
+  .seprator {
+    background-image: url('../../assets/img/seprator.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+  }
+
+  ion-content {
+    margin-top: 0 !important;
+  }
+
+  .range-md, .range-ios {
+    padding: 0;
+  }
+
+  .itemList {
+    margin-top: 1vh;
+    width: 100%;
+    background-color: black;
+    border: 0;
+  }
+
+  .buttonBottom {
+    background-color: #a9a9a9;
+    border: 1px solid #332e23;
+
+  }
+
+  .iconBlack {
+    color: black !important;
+  }
+
+  .buttonTop {
+    background-color: white;
+    border: 1px solid #332e23;
+
+  }
+
+  .poemCard {
+    background-color: black;
+    width: 95%;
+
+  }
+
+  .card-center {
+    background-image: url('../assets/img/poemBack.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+    min-height: 60vh;
+  }
+
+  .roundBorder {
+    border-radius: 100%;
+    border: 2.5px solid #ff9200;
+    width: 8vh;
+    height: 8vh;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  .playerThumbnail {
+    width: 100% !important;
+    height: 60vh !important;
+  }
+
+  .player {
+    //border: 1px solid black;
+    //position: fixed;
+    bottom: 0 !important;
+    background-color: #e0e0e0;
+    height: 30vh !important;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    justify-content: flex-start;
+  }
+
+  .ranges {
+    color: black !important;
+    width: 6vh;
+    //border:1px solid black;
+    text-align: center;
+    //margin-top: 5vh;
+  }
+
+  .musicControlls {
+    color: #ff9200;
+  }
+
+  .playerButtons {
+    width: 25vw !important;
+    margin-top: -3vh !important;
+    //padding-top: 5vh!important;
+    height: 10vw !important;
+    background-color: #910200;
+  }
+
+  .roundBorderCenter {
+    border-radius: 100%;
+    border: 2.5px solid #ff9200;
+    width: 12vh;
+    height: 12vh;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  .range-md .range-knob-handle, .range-ios .range-knob-handle {
+    margin-left: -21px;
+  }
+  .range-md [range-left] {
+    margin: 0 10px 0 12px !important;
+    color: white;
+  }
+
+  .range-md [range-right] {
+    margin: 0 12px 0 10px;
+    color: white;
+  }
+
+  .range-ios [range-right] {
+    margin: 0 20px 0 15px;
+    color: white;
+  }
+  .range-ios [range-left] {
+    margin: 0 15px 0 20px;
+    color: white;
+  }
+  .hem {
+    color: black;
+    font-size: 2vh;
+    height: 10vh !important;
+  }
+}

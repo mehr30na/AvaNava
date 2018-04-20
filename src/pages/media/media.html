@@ -1,0 +1,365 @@
+<!--
+  Generated template for the ItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+
+  <div style="text-align: center">
+    <ion-spinner *ngIf="!loaded && !flipView" name="ios"></ion-spinner>
+  </div>
+
+  <!--***********************************poem-image**************************************-->
+
+  <!--<ion-col col-12 no-padding *ngIf="source !== 'beeptunes' ">-->
+
+  <!--<ion-scroll scrollY="true" style="height: 60vh">-->
+
+  <!--<ion-row *ngIf="flipView === 'HAMESTICH'">-->
+  <!--<ion-card class="card-center">-->
+  <!--<ion-row *ngFor="let item of hemistichList">-->
+  <!--<ion-col col-3 *ngIf="item.indexNumber%2!==0"></ion-col>-->
+  <!--<ion-col col-9 *ngIf="item.indexNumber%2!==0" style="color: white" text-center>-->
+  <!--{{item.context}}-->
+  <!--</ion-col>-->
+  <!--<ion-col col-9 *ngIf="item.indexNumber%2===0" style="color: white" text-center>-->
+  <!--{{item.context}}-->
+  <!--</ion-col>-->
+  <!--<ion-col col-3 *ngIf="item.indexNumber%2===0"></ion-col>-->
+  <!--</ion-row>-->
+  <!--</ion-card>-->
+  <!--</ion-row>-->
+
+  <!--<ion-row *ngIf="flipView === 'WORDMEANING' && wordMeaning !== null">-->
+  <!--<ion-card class="card-center">-->
+  <!--<ion-row *ngFor="let item of wordMeaning" style="width: 100%">-->
+  <!--<ion-col col-5 style="color: white" text-center>{{item.word}}</ion-col>-->
+  <!--<ion-col col-2 style="color: white">:</ion-col>-->
+  <!--<ion-col col-5 style="color: white" text-center>{{item.meaning}}</ion-col>-->
+  <!--</ion-row>-->
+  <!--</ion-card>-->
+  <!--</ion-row>-->
+
+  <!--<ion-row *ngIf="flipView === 'COMMENTARY' && commentary !== null">-->
+  <!--<ion-card class="card-center">-->
+  <!--<ion-row style="height: 2vh"></ion-row>-->
+  <!--<ion-row style="width: 100%">-->
+  <!--<ion-col col-12 style="color: white" text-center>تفسیر شعر</ion-col>-->
+  <!--</ion-row>-->
+  <!--<br>&nbsp;<br>-->
+  <!--<ion-row style="width: 100%">-->
+  <!--<ion-col col-12 style="color: white" text-right>{{commentary}}</ion-col>-->
+  <!--</ion-row>-->
+  <!--</ion-card>-->
+  <!--</ion-row>-->
+
+
+  <!--</ion-scroll>-->
+
+  <!--</ion-col>-->
+
+
+  <!--************************************new-poem-image***********************************-->
+
+  <!--<ion-grid>-->
+  <!--<ion-row>-->
+  <ion-col col-12 no-padding *ngIf="source !== 'beeptunes' ">
+
+    <ion-scroll scrollY="true" style="height: 60vh;" *ngIf="flipView !== 'PICTURE' ">
+
+      <ion-row *ngIf="flipView === 'HAMESTICH'">
+        <ion-card class="card-center">
+          <!--<ion-row>-->
+          <!--<ion-col col-2></ion-col>-->
+          <!--<ion-col col-8 text-center>-->
+          <!--<img src="./assets/img/upAndDown.png">-->
+          <!--</ion-col>-->
+          <!--<ion-col col-2></ion-col>-->
+          <!--</ion-row>-->
+
+          <ion-row class="felxCenter" text-center>
+            <img src="./assets/img/eslimall.png"
+                 style="z-index: 1;width:90vw!important;height:10vh!important;">
+            <ion-col col-12 class="hem" text-center *ngIf="hemistichList.length>0"
+                     style="font-size: 2vh!important; margin-top: -8vh!important;width: 100vw">
+
+              ...{{hemistichList[0].context}}
+            </ion-col>
+
+
+          </ion-row>
+          <!--<ion-row>-->
+          <!--<ion-col col-2></ion-col>-->
+          <!--<ion-col col-8 text-center>-->
+          <!--<img src="./assets/img/upAndDown.png">-->
+          <!--</ion-col>-->
+          <!--<ion-col col-2></ion-col>-->
+          <!--</ion-row>-->
+
+          <ion-row *ngFor="let item of hemistichList">
+            <!--<ion-col col-3 *ngIf="item.indexNumber%2!==0"></ion-col>-->
+            <ion-col col-12 *ngIf="item.indexNumber%2!==0" style="color: black" text-center>
+              {{item.context}}
+            </ion-col>
+            <ion-col col-12 *ngIf="item.indexNumber%2===0" style="color: black" text-center>
+              {{item.context}}
+            </ion-col>
+            <!--<ion-col col-3 *ngIf="item.indexNumber%2===0"></ion-col>-->
+          </ion-row>
+        </ion-card>
+      </ion-row>
+
+      <ion-row *ngIf="flipView === 'WORDMEANING' && wordMeaning !== null">
+        <ion-card class="card-center">
+          <ion-row *ngFor="let item of wordMeaning" style="width: 100%">
+            <ion-col col-5 style="color: black" text-center>{{item.word}}</ion-col>
+            <ion-col col-2 style="color: black">:</ion-col>
+            <ion-col col-5 style="color: black" text-center>{{item.meaning}}</ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-row>
+
+      <ion-row *ngIf="flipView === 'COMMENTARY' && commentary !== null">
+        <ion-card class="card-center">
+          <ion-row style="height: 2vh"></ion-row>
+          <ion-row style="width: 100%">
+            <ion-col col-12 style="color: black" text-center>تفسیر شعر</ion-col>
+          </ion-row>
+          <br>&nbsp;<br>
+          <ion-row style="width: 100%" text-justify>
+            <ion-col col-12 style="color: black" text-right>{{commentary}}</ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-row>
+
+
+    </ion-scroll>
+
+  </ion-col>
+
+  <!--</ion-row>-->
+  <!--</ion-grid>-->
+
+
+  <!--****************************************************************************************-->
+
+
+  <ion-row *ngIf="flipView === 'PICTURE'">
+    <img class="playerThumbnail" [src]="globalUrl+playerImage">
+    <!--<img class="playerThumbnail" src="./assets/img/offlinePlaceholder.png" (load)="loaded = true" [hidden]="!loaded"-->
+    <!--*ngIf="!isOnline">-->
+  </ion-row>
+
+
+  <ion-row *ngIf="source === 'beeptunes' ">
+    <img-loader class="playerThumbnail" [src]="playerImage"
+                useImg fallback="./assets/img/offlinePlaceholder.png"
+                fallbackAsPlaceholder="true"
+                spinner="true"
+    ></img-loader>
+    <!--<img class="playerThumbnail" src="./assets/img/offlinePlaceholder.png" (load)="loaded = true" [hidden]="!loaded"-->
+    <!--*ngIf="!isOnline">-->
+  </ion-row>
+
+
+  <!--***************************************************************************************-->
+
+  <ion-row>
+    <img src="./assets/img/seprator.png" style="height: 3vh!important;">
+    <ion-col text-center class="felxCenter">
+      <button ion-button small round class="playerButtons felxCenter" (tap)="download(poem)"><span
+        style="font-size:2vh!important; text-align: center!important;">ذخیره آهنگ</span></button>
+    </ion-col>
+    <ion-col class="felxCenter" *ngIf="source !== 'beeptunes' && flipView === 'HAMESTICH' && hafez"
+             text-center>
+      <button ion-button small round class="playerButtons felxCenter" (tap)="flipify('WORDMEANING')"><span
+        style="font-size:2vh!important;">معانی لغات سخت</span>
+      </button>
+    </ion-col>
+    <ion-col class="felxCenter"
+             *ngIf="source !== 'beeptunes' && flipView === 'WORDMEANING' || flipView === 'COMMENTARY' && hafez"
+             text-center>
+      <button ion-button small round class="playerButtons felxCenter" (tap)="flipify('HAMESTICH')"><span
+        style="font-size:2vh!important;">متن شعر</span></button>
+    </ion-col>
+    <ion-col *ngIf="source ==='divination'" class="felxCenter" text-center>
+      <button ion-button small round class="playerButtons felxCenter" (tap)="flipify('COMMENTARY')"><span
+        style="font-size:2vh!important;">تفسیر شعر</span></button>
+    </ion-col>
+  </ion-row>
+
+
+  <!--<ion-row style="background-color: white">-->
+  <!--<ion-col text-center class="felxCenter">-->
+  <!--<button ion-button small class="playerButtons" (tap)="download(poem)">ذخیره آهنگ</button>-->
+  <!--</ion-col>-->
+  <!--<ion-col class="felxCenter" *ngIf="source !== 'beeptunes' && flipView === 'HAMESTICH' && hafez" text-center>-->
+  <!--<button ion-button small class="playerButtons" (tap)="flipify('WORDMEANING')">معانی لغات سخت</button>-->
+  <!--</ion-col>-->
+  <!--<ion-col class="felxCenter"-->
+  <!--*ngIf="source !== 'beeptunes' && flipView === 'WORDMEANING' || flipView === 'COMMENTARY' && hafez"-->
+  <!--text-center>-->
+  <!--<button ion-button small class="playerButtons" (tap)="flipify('HAMESTICH')">متن شعر</button>-->
+  <!--</ion-col>-->
+  <!--<ion-col *ngIf="source ==='divination'" class="felxCenter" text-center>-->
+  <!--<button ion-button small class="playerButtons" (tap)="flipify('COMMENTARY')">تفسیر شعر</button>-->
+  <!--</ion-col>-->
+  <!--</ion-row>-->
+
+
+  <!--*******************************************************************************************-->
+
+
+  <!--<ion-row style="height: 10vh;background-color: white" *ngIf="source ==='divination' ">-->
+  <!--<ion-col class="felxCenter"  text-center>-->
+  <!--<button ion-button small class="playerButtons" (tap)="flipify('COMMENTARY')">تفسیر شعر</button>-->
+  <!--</ion-col>-->
+  <!--</ion-row>-->
+
+
+  <!--*************************************************************************-->
+
+
+  <ion-grid class="player">
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-range [(ngModel)]="position" (change)="controlPosition($event)" color="dark">
+          <!--<ion-icon range-left name="volume-down"></ion-icon>-->
+          <!--<ion-icon range-right small name="volume-up"></ion-icon>-->
+          <div range-left class="ranges" *ngIf="timer === null || !timer || timer === '-1:-1' ">0:0</div>
+          <div range-left class="ranges" *ngIf="timer != null && timer !='-1:-1' ">{{timer}}</div>
+          <div range-right class="ranges">{{durationShow}}</div>
+        </ion-range>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-2 text-center style="height: 8vh;" class="felxCenter">
+        <!--<div class="roundBorder">-->
+        <!--<button ion-button icon-only clear round>-->
+        <!--<ion-icon name="rewind" class="musicControlls"></ion-icon>-->
+        <img src="./assets/img/backwardNew.png" style="width: 10vw;z-index: 1" (tap)="controlSeconds('back')">
+        <!--</button>-->
+        <!--</div>-->
+      </ion-col>
+
+
+      <ion-col col-4 text-center class="felxEnd">
+        <!--<div class="roundBorderCenter">-->
+        <!--<button ion-button icon-only clear round  >-->
+        <!--<ion-icon name="play" class="musicControlls"></ion-icon>-->
+        <img src="./assets/img/playNew.png" style="width: 17vw;z-index: 1;"
+             (tap)="playAudio(poem)"
+             *ngIf="!isPlaying">
+        <!--</button>-->
+        <!--<button ion-button icon-only clear round  >-->
+        <!--<ion-icon name="pause" class="musicControlls"></ion-icon>-->
+        <img src="./assets/img/pauseNew.png" style="width: 17vw;z-index: 1;"
+             (tap)="pauseAudio()"
+             *ngIf="isPlaying">
+        <!--</button>-->
+        <!--</div>-->
+      </ion-col>
+
+
+      <!--<h6 style="color: white">30</h6>&nbsp;-->
+      <ion-col col-2 text-center style="height: 8vh;" class="felxCenter">
+        <!--<div class="roundBorder">-->
+        <!--<button ion-button icon-only clear round >-->
+        <!--<ion-icon name="fastforward" class="musicControlls"></ion-icon>-->
+        <img src="./assets/img/forwardNew.png" style="width: 10vw;z-index: 1" (tap)="controlSeconds('forward')">
+        <!--</button>-->
+        <!--</div>-->
+      </ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+
+
+    <!--<ion-item  no-lines  no-margin >-->
+    <!--<ion-row>-->
+    <!--<ion-col text-center class="felxCenter">-->
+    <!--<button ion-button small class="playerButtons felxCenter"  (tap)="download(poem)"><span style="font-size:2vh!important; text-align: center!important;">ذخیره آهنگ</span></button>-->
+    <!--</ion-col>-->
+    <!--<ion-col class="felxCenter" *ngIf="source !== 'beeptunes' && flipView === 'HAMESTICH' && hafez"-->
+    <!--text-center>-->
+    <!--<button ion-button small class="playerButtons felxCenter" (tap)="flipify('WORDMEANING')"><span style="font-size:2vh!important;">معانی لغات سخت</span>-->
+    <!--</button>-->
+    <!--</ion-col>-->
+    <!--<ion-col class="felxCenter"-->
+    <!--*ngIf="source !== 'beeptunes' && flipView === 'WORDMEANING' || flipView === 'COMMENTARY' && hafez"-->
+    <!--text-center>-->
+    <!--<button ion-button small class="playerButtons felxCenter" (tap)="flipify('HAMESTICH')"><span style="font-size:2vh!important;">متن شعر</span></button>-->
+    <!--</ion-col>-->
+    <!--<ion-col *ngIf="source ==='divination'" class="felxCenter" text-center>-->
+    <!--<button ion-button small class="playerButtons felxCenter" (tap)="flipify('COMMENTARY')"><span style="font-size:2vh!important;">تفسیر شعر</span></button>-->
+    <!--</ion-col>-->
+    <!--</ion-row>-->
+    <!--</ion-item>-->
+    <!--<br>-->
+    <!--<ion-row *ngIf="source !== 'beeptunes' ">-->
+    <!--<ion-col col-6 text-right>-->
+    <!--<button ion-button small class="playerButtons" (tap)="download(poem)">ذخیره آهنگ</button>-->
+    <!--</ion-col>-->
+    <!--<ion-col col-6 text-left>-->
+    <!--<button ion-button small class="playerButtons" (tap)="flipify('WORDMEANING')"-->
+    <!--*ngIf="flipView === 'HAMESTICH'">-->
+    <!--معانی لغات سخت-->
+    <!--</button>-->
+
+    <!--<button ion-button small class="playerButtons" (tap)="flipify('HAMESTICH')"-->
+    <!--*ngIf="flipView === 'WORDMEANING' || flipView === 'COMMENTARY'">-->
+    <!--متن شعر-->
+    <!--</button>-->
+    <!--</ion-col>-->
+    <!--</ion-row>-->
+    <!--<ion-row>-->
+    <!--<ion-col col-12 text-center>-->
+    <!--<button ion-button small class="playerButtons" (tap)="flipify('COMMENTARY')"-->
+    <!--*ngIf="(flipView === 'HAMESTICH' || flipView === 'WORDMEANING') && source==='divination'">-->
+    <!--تفسیر شعر-->
+    <!--</button>-->
+    <!--</ion-col>-->
+    <!--</ion-row>-->
+
+    <!--<ion-row *ngIf="source === 'beeptunes' " style="margin-top: -2vh">-->
+    <!--<ion-col col-3></ion-col>-->
+    <!--<ion-col col-6 text-center>-->
+    <!--<button ion-button class="playerButtons" (tap)="download(poem)">ذخیره آهنگ</button>-->
+    <!--</ion-col>-->
+    <!--<ion-col col-3></ion-col>-->
+    <!--</ion-row>-->
+
+    <ion-row>
+      <ion-col col-2 class="felxCenter">
+        <button ion-button icon-only clear round (tap)="share()">
+          <ion-icon class="iconBlack" name="share"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-8 style="text-align: center">
+        <ion-range [(ngModel)]="volume" (ionChange)="controlVolume($event)" color="dark">
+          <ion-icon range-left name="volume-down" class="iconBlack"></ion-icon>
+          <ion-icon range-right name="volume-up" class="iconBlack"></ion-icon>
+        </ion-range>
+      </ion-col>
+      <ion-col col-2 class="felxCenter">
+        <button ion-button icon-only clear round *ngIf="star">
+          <ion-icon class="iconBlack" name="star"></ion-icon>
+        </button>
+        <button ion-button icon-only clear round *ngIf="!star" (tap)="starify(poem)"
+        >
+          <ion-icon class="iconBlack" name="star-outline"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+
+</ion-content>
+

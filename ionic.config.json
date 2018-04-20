@@ -1,0 +1,8 @@
+{
+  "name": "avanava",
+  "app_id": "e9c721fd",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

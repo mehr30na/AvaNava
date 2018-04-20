@@ -1,0 +1,86 @@
+<!--
+  Generated template for the FalHafezPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+
+  <ion-row class="falSpinner" *ngIf="falLoadingShow">
+    <ion-col col-3></ion-col>
+    <ion-col col-6>
+      <img-loader src="./assets/img/gifeihafez.gif"
+
+                  useImg
+
+                  spinner="true"
+      ></img-loader>
+    </ion-col>
+    <ion-col col-3></ion-col>
+  </ion-row>
+
+  <ion-spinner name="ios" *ngIf="falLoadingShow" class="falSpinner1"></ion-spinner>
+
+  <div *ngIf="falLoadingShow" class="fadeBg"></div>
+
+  <img-loader src="./assets/img/falbg.png" style="width: 100%;height: auto"
+
+              useImg
+
+              spinner="true"
+  ></img-loader>
+
+  <ion-row class="falLogo" *ngIf="!falLoadingShow">
+    <ion-col col-3></ion-col>
+    <ion-col col-6>
+      <img-loader src="./assets/img/falLogo.png"
+
+                  useImg
+
+                  spinner="true"
+      ></img-loader>
+    </ion-col>
+    <ion-col col-3></ion-col>
+  </ion-row>
+
+  <!--<ion-row class="falNiat" *ngIf="!falLoadingShow">-->
+  <!--<ion-col col-3></ion-col>-->
+  <!--<ion-col col-6>-->
+  <!--<img src="./assets/img/niat.png">-->
+  <!--</ion-col>-->
+  <!--<ion-col col-3></ion-col>-->
+  <!--</ion-row>-->
+
+
+  <ion-row class="falButtons" *ngIf="!falLoadingShow">
+    <ion-col col-3></ion-col>
+    <ion-col col-6>
+      <img-loader src="./assets/img/fal1.png" (tap)="fal()"
+
+                  useImg
+
+                  spinner="true"
+      ></img-loader>
+      <img-loader src="./assets/img/fal2.png" (tap)="fal2()"
+
+                  useImg
+
+                  spinner="true"
+      ></img-loader>
+    </ion-col>
+    <ion-col col-3></ion-col>
+  </ion-row>
+
+
+  <!--<ion-row class="falButtons" *ngIf="!falLoadingShow">-->
+  <!--<ion-col col-3></ion-col>-->
+  <!--<ion-col col-6>-->
+  <!--<button ion-button style="width: 100%" (tap)="fal()">فال برای خودم</button>-->
+  <!--<button ion-button style="width: 100%" (tap)="fal()">فال برای دوستم</button>-->
+  <!--</ion-col>-->
+  <!--<ion-col col-3></ion-col>-->
+  <!--</ion-row>-->
+
+
+</ion-content>

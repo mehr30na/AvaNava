@@ -1,0 +1,82 @@
+<ion-menu [content]="content" side="right" swipeEnabled="false">
+  <!--<ion-header>-->
+  <!--<ion-toolbar>-->
+  <!--<ion-title>منو</ion-title>-->
+  <!--</ion-toolbar>-->
+  <!--</ion-header>-->
+
+  <ion-content class="appMenu" style="margin-top: 0!important;">
+
+    <ion-item-group *ngIf="global['token']">
+      <ion-item-divider style="background-color: #5b5b5b;color:white">منوی اصلی</ion-item-divider>
+      <ion-item>
+        <button menuClose ion-item *ngFor="let p of pagesRegistered1" (click)="openPage(p)" class="sideMenu">
+          <p class="menuText">
+            <span><ion-icon style="color: #6d6d6d!important;" name="{{p.icon}}"></ion-icon></span>&nbsp;&nbsp;{{p.title}}
+          </p>
+        </button>
+      </ion-item>
+    </ion-item-group>
+
+
+    <ion-item-group *ngIf="global['token']">
+      <ion-item-divider style="background-color: #5b5b5b;color:white">حساب</ion-item-divider>
+      <ion-item>
+        <button menuClose ion-item *ngFor="let p of pagesRegistered2" (click)="openPage(p)" class="sideMenu">
+          <p class="menuText">
+            <span><ion-icon style="color: #6d6d6d!important;" name="{{p.icon}}"></ion-icon></span>&nbsp;&nbsp;{{p.title}}
+          </p>
+        </button>
+      </ion-item>
+    </ion-item-group>
+
+
+    <ion-item-group *ngIf="global['token']">
+      <ion-item-divider style="background-color: #5b5b5b;color:white">درباره ما</ion-item-divider>
+      <ion-item>
+        <button menuClose ion-item *ngFor="let p of pagesRegistered3" (click)="openPage(p)" class="sideMenu">
+          <p class="menuText">
+            <span><ion-icon style="color: #6d6d6d!important;" name="{{p.icon}}"></ion-icon></span>&nbsp;&nbsp;{{p.title}}
+          </p>
+        </button>
+      </ion-item>
+    </ion-item-group>
+
+
+    <ion-item-group *ngIf="!global['token']">
+      <ion-item-divider style="background-color: #5b5b5b;color:white">منوی اصلی</ion-item-divider>
+      <ion-item>
+        <button menuClose ion-item *ngFor="let p of pagesUnregistered1" (click)="openPage(p)" class="sideMenu">
+          <p class="menuText">
+            <span><ion-icon style="color: #6d6d6d!important;" name="{{p.icon}}"></ion-icon></span>&nbsp;{{p.title}}
+          </p>
+        </button>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group *ngIf="!global['token']">
+      <ion-item-divider style="background-color: #5b5b5b;color:white">درباره ما</ion-item-divider>
+      <ion-item>
+        <button menuClose ion-item *ngFor="let p of pagesUnregistered2" (click)="openPage(p)" class="sideMenu">
+          <p class="menuText">
+            <span><ion-icon style="color: #6d6d6d!important;" name="{{p.icon}}"></ion-icon></span>&nbsp;{{p.title}}
+          </p>
+        </button>
+      </ion-item>
+    </ion-item-group>
+
+
+    <!--<ion-list *ngIf="!global['token']">-->
+    <!--<button menuClose ion-item *ngFor="let p of pagesUnregistered" (click)="openPage(p)" class="sideMenu">-->
+    <!--<p class="menuText">-->
+    <!--{{p.title}}-->
+    <!--</p>-->
+    <!--</button>-->
+    <!--</ion-list>-->
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

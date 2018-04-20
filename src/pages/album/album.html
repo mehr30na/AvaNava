@@ -1,0 +1,59 @@
+<!--
+  Generated template for the AlbumPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<app-header></app-header>
+
+
+<ion-content>
+
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+  <!--<ion-refresher-content></ion-refresher-content>-->
+  <!--</ion-refresher>-->
+
+
+  <ion-list *ngIf="albumSource !== 'beeptunes'">
+    <ion-card *ngFor="let album of galleries" class="cardTile" (tap)="openItemList(album.id,'')">
+      <img-loader [src]="globalUrl+album.imageURL"
+                  useImg fallback="./assets/img/offlinePlaceholder.png"
+                  fallbackAsPlaceholder="true"
+                  spinner="true"
+      ></img-loader>
+      <!--<img src="./assets/img/offlinePlaceholder.png" *ngIf="!isOnline">-->
+      <!--<ion-spinner *ngIf="!loaded" class="SpinCenter"></ion-spinner>-->
+      <ion-card-content>
+        <ion-card-title class="card-title overflow" text-center>
+          {{album.title}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    <ion-item></ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="albumSource === 'beeptunes'">
+    <ion-card *ngFor="let album of albums" class="cardTile" (tap)="openItemList(album.id,'beeptunes')">
+      <img-loader [src]="album.primaryImage"
+                  useImg fallback="./assets/img/offlinePlaceholder.png"
+                  fallbackAsPlaceholder="true"
+                  spinner="true"
+      ></img-loader>
+      <!--<img src="./assets/img/offlinePlaceholder.png" *ngIf="!isOnline">-->
+      <!--<ion-spinner *ngIf="!loaded" class="SpinCenter"></ion-spinner>-->
+      <ion-card-content>
+        <ion-card-title class="card-title overflow" text-center>
+          {{album.name}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    <ion-item></ion-item>
+  </ion-list>
+
+
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())"
+                       *ngIf="albumSource === 'beeptunes' && !infiniteStop">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

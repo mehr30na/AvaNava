@@ -1,0 +1,192 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/iranSans/IRANSansWeb(FaNum).eot');
+  src: url('../assets/fonts/iranSans/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+  url('../assets/fonts/iranSans/IRANSansWeb(FaNum).woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+  url('../assets/fonts/iranSans/IRANSansWeb(FaNum).woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../assets/fonts/iranSans/IRANSansWeb(FaNum).ttf') format('truetype');
+}
+
+@media (min-width: 320px) { /* smartphones, iPhone, portrait 480x320 phones */
+  * {
+    font-size: 4.25vw !important;
+  }
+}
+
+@media (min-width: 481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  * {
+    font-size: 3vw !important;
+  }
+}
+
+@media (min-width: 641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  * {
+    font-size: 2.25vw !important;
+  }
+}
+
+@media (min-width: 961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+  * {
+    font-size: 2.75vw !important;
+  }
+}
+
+@media (min-width: 1025px) { /* big landscape tablets, laptops, and desktops */
+  * {
+    font-size: 2.75vw !important;
+  }
+}
+
+@media (min-width: 1281px) { /* hi-res laptops and desktops */
+  * {
+    font-size: 1.75vw !important;
+  }
+}
+
+* {
+  direction: rtl;
+  font-weight: 500;
+  -webkit-overflow-scrolling: touch;
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #ff7e00;
+  border-radius: 2px;
+}
+
+ion-icon {
+  font-size: 4.5vw !important;
+  align-self: center;
+}
+
+.img-loaded + ion-spinner {
+  display: none !important;
+}
+
+.SpinCenter {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.horizontalcard {
+  padding: 0.8vh;
+  display: inline-block;
+  border-radius: 1vh;
+  width: 20vh;
+  margin: 0.5vh;
+}
+
+ion-content {
+  margin-top: 6.5vh !important;
+  background-color: #e0e0e0 !important;
+}
+
+ion-item {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.sideMenu {
+  background-color: #333333 !important;
+}
+
+.playIcon {
+  color: #ff9200;
+  margin-left: 0.3vh;
+  margin-top: 0.3vh;
+}
+
+.listPlayButton {
+  border: 1px solid #ff9200;
+  background-color: rgba(255, 255, 255, 1);
+  width: 6vh !important;
+  height: 6vh !important;
+}
+
+.menuText {
+  color: white !important;
+  //font-size: 2vh !important;
+  z-index: 999;
+}
+
+.appMenu {
+  background-color: #333333 !important;
+  margin-top: 0 !important;
+}
+
+.felxCenter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.felxEnd {
+  display: flex;
+  flex-direction: column;
+  //flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cardTile {
+  margin: 0.5% !important;
+  display: inline-block;
+  width: 32%;
+  //min-height: 10vh!important;
+  border-radius: 5%;
+}
+
+.overflow {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popOver {
+  .popover-content {
+    width: 85% !important;
+    height: auto;
+    top: 20% !important;
+    right: 7.5% !important;
+  }
+
+  ion-backdrop {
+    opacity: 0.5 !important;
+  }
+}
+
+div, p, table, span, h1, h2, h3, h4, h5, h6, ion-col {
+  font-family: IRANSans !important;
+}

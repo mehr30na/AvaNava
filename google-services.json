@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "496473349198",
+    "firebase_url": "https://avanava-23702.firebaseio.com",
+    "project_id": "avanava-23702",
+    "storage_bucket": "avanava-23702.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496473349198:android:f0c71f60570b96e2",
+        "android_client_info": {
+          "package_name": "io.ionic.avanava"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496473349198-2ie9qebdgkeggkoq56dsbvv3lucbjj6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApRfjdCM0cWKK5gH3avc2DlsaKBUCYXhQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

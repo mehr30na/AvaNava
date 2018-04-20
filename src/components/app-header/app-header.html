@@ -1,0 +1,37 @@
+<ion-header class="heading">
+  <ion-row>
+    <ion-col class="felxCenter">
+      <ion-row>
+        <ion-col col-4 class="felxCenter">
+          <ion-navbar>
+            <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-navbar>
+        </ion-col>
+        <ion-col col-8 class="felxCenter">
+          <span>آوا و نوا</span>
+        </ion-col>
+        <!--<ion-col></ion-col>-->
+      </ion-row>
+    </ion-col>
+    <ion-col class="felxCenter">
+      <ion-row style="margin: auto">
+        <ion-icon style="margin-top: 1vh" name="fastforward" (tap)="controlSeconds('forward')"></ion-icon>
+        <img class="playerImage" src="./assets/img/play.png" *ngIf="!isPlaying"
+             (tap)="playAudio()">
+        <img class="playerImage" src="./assets/img/pause.png" *ngIf="isPlaying"
+             (tap)="pauseAudio()">
+        <ion-icon style="margin-top: 1vh" name="rewind" (tap)="controlSeconds('back')"></ion-icon>
+      </ion-row>
+    </ion-col>
+    <ion-col class="felxCenter">
+      <ion-row (tap)="openSearch()">
+        <ion-col col-9 class="felxCenter"><span>جستجو</span></ion-col>
+        <ion-col col-3 class="felxCenter">
+          <ion-icon name="search" end></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-header>

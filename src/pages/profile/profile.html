@@ -1,0 +1,222 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<app-header></app-header>
+
+<ion-content>
+
+  <ion-grid>
+    <!--<ion-row *ngIf="showInfo" style="background-color:#54C5D0;">-->
+
+    <!--<ion-col col-12 style="display: flex;align-content: center;border:1px solid black">-->
+
+    <!--&lt;!&ndash;<ion-item  no-lines (tap)="openCamera()">&ndash;&gt;-->
+    <!--&lt;!&ndash;<ion-avatar (tap)="openCamera()">&ndash;&gt;-->
+    <!--&lt;!&ndash;<img style="width:35vw; height:20vh;" [src]="cameraData">&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-avatar>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-item>&ndash;&gt;-->
+    <!--<ion-item no-lines style="margin: auto">-->
+    <!--<br>-->
+    <!--<h2>{{firstName}} {{lastName}}</h2>-->
+    <!--</ion-item>-->
+
+    <!--</ion-col>-->
+
+    <!--&lt;!&ndash;<ion-col col-6>&ndash;&gt;-->
+    <!--&lt;!&ndash;<button ion-button outline icon-left (tap)="presentProfilePopover($event)">&ndash;&gt;-->
+    <!--&lt;!&ndash;<ion-icon ios="ios-brush" md="md-brush"></ion-icon>&nbsp;&nbsp;&ndash;&gt;-->
+    <!--&lt;!&ndash;ویرایش پروفایل&ndash;&gt;-->
+    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-col>&ndash;&gt;-->
+
+    <!--</ion-row>-->
+    <ion-row>
+
+      <ion-col col-12 style="background-color: white">
+        <ion-row>
+          <ion-col text-center>
+            <button ion-button block clear (tap)="showPage('info')">
+              <ion-icon name="information-circle"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col text-center>
+            <button ion-button block clear (tap)="showPage('fav')">
+              <ion-icon name="star"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col text-center>
+            <button ion-button block clear (tap)="showPage('down')">
+              <ion-icon name="cloud-download"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col col-12 *ngIf="mode === 'info'">
+        <ion-card>
+          <ion-card-header style="background-color: #aeaeae">
+            <ion-row>
+              <ion-col text-right>
+                ‍ پروفایل کاربری
+
+
+              </ion-col>
+              <ion-col text-left>
+
+                <button text-left ion-button small outline icon-left style="color: black;"
+                        (tap)="presentProfilePopover($event)">
+                  <ion-icon ios="ios-brush" md="md-brush"></ion-icon>&nbsp;&nbsp;
+                  ویرایش پروفایل
+                </button>
+
+
+              </ion-col>
+
+
+            </ion-row>
+
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label for="name" stacked>نام</ion-label>
+                <ion-input id="name" type="text" [(ngModel)]="tempUser.firstName" name="firstName"
+                           disabled></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label for="lastname" stacked>نام خانوادگی</ion-label>
+                <ion-input id="lastname" type="text" [(ngModel)]="tempUser.lastName" name="lastName"
+                           disabled></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label for="number" stacked>شماره تلفن</ion-label>
+                <ion-input id="number" type="number" [(ngModel)]="tempUser.username" name="username"
+                           disabled></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label for="email" stacked>ایمیل</ion-label>
+                <ion-input id="email" type="email" [(ngModel)]="tempUser.email" name="email"
+                           disabled></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label for="birthDate" stacked>تاریخ تولد</ion-label>
+                <ion-input id="birthDate" type="text" value="{{year}}/{{month}}/{{day}}"
+                           name="birthDate"
+                           disabled></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+
+
+        </ion-card>
+      </ion-col>
+      <ion-col col-12 *ngIf="mode === 'fav'">
+
+
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+
+        <!--[virtualScroll]="wishList"-->
+        <ion-list>
+          <ion-card *ngFor="let wish of wishList">
+
+            <ion-item-sliding #item>
+
+              <ion-item style="height: 8vh"
+                        (tap)="goToOtherPage(wish.id,'beeptunes',wish.financialStatus)"
+                        *ngIf="wish.name">
+                <ion-row>
+                  <ion-col col-2><img [src]="wish.image"></ion-col>
+                  <ion-col col-9>{{wish.name}}</ion-col>
+                </ion-row>
+              </ion-item>
+
+              <ion-item style="height: 8vh" (tap)="goToOtherPage(wish.id,'',wish.financialStatus)"
+                        *ngIf="wish.title">
+                <ion-row>
+                  <ion-col col-2><img [src]="globalUrl+wish.poemGallery.imageURL"></ion-col>
+                  <ion-col col-9>{{wish.title}}</ion-col>
+                </ion-row>
+              </ion-item>
+
+              <ion-item-options side="right">
+                <button ion-button color="danger" icon-only (tap)="removeWishList(wish)"
+                        style="width:10vh;z-index: 9999">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </ion-item-options>
+
+              <!--<ion-item-options side="left">-->
+              <!--<button ion-button expandable color="danger" (click)="removeWishList(item)" style="width: 15vh">حذف</button>-->
+              <!--</ion-item-options>-->
+
+            </ion-item-sliding>
+          </ion-card>
+          <ion-item no-lines></ion-item>
+        </ion-list>
+
+
+      </ion-col>
+      <ion-col col-12 *ngIf="mode === 'down'">
+
+
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+
+        <ion-row>
+          <ion-col col-12 style="text-align: right;" class="felxCenter">
+            <ion-item no-lines no-padding no-margin>
+              <br>
+              <h2 class="text-heading">روایت ادبیات کهن</h2>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-card *ngFor="let album1 of myDownloadslist" class="cardTile"
+                    (tap)="openItemList(album1.id,'')">
+            <img [src]="globalUrl+album1.imageURL">
+            <ion-card-content>
+              <ion-card-title class="card-title overflow" text-center>
+                {{album1.title}}
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-row>
+        <ion-item></ion-item>
+
+        <ion-row>
+          <ion-col col-12 style="text-align: right;" class="felxCenter">
+            <ion-item no-lines no-padding no-margin>
+              <h2 class="text-heading">موسیقی</h2>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-card *ngFor="let album2 of myBeepDownloadslist" class="cardTile"
+                    (tap)="openItemList(album2.id,'beeptunes')">
+            <img [src]="album2.primaryImage">
+            <ion-card-content>
+              <ion-card-title class="card-title overflow" text-center>
+                {{album2.name}}
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-row>
+        <ion-item></ion-item>
+
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

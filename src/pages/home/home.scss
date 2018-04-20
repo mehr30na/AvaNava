@@ -1,0 +1,22 @@
+page-home {
+
+  .slider {
+    height: auto !important;
+  }
+  .sliderImage {
+    width: 100% !important;
+  }
+
+  .card-title {
+    padding: 0;
+    min-height: 5vh;
+    text-align: center;
+  }
+
+  .text-heading {
+    margin-right: 3%;
+    //font-size: 2vh !important;
+    align-self: flex-start;
+  }
+
+}

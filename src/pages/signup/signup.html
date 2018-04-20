@@ -1,0 +1,176 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<!--<ion-content>-->
+<!--<ion-row>-->
+<!--<img src="./assets/img/avanava.jpg" class="logo">-->
+<!--</ion-row>-->
+<!--<ion-row>-->
+<!--<div padding class="formContainer">-->
+<!--<ion-list>-->
+
+<!--<ion-item *ngIf="smsConfirmation || tryCount>0 && tryCount!==3">-->
+<!--<ion-label fixed>کد تایید را وارد کنید</ion-label>-->
+<!--<ion-input type="number" text-left [(ngModel)]="user.smsConfirm" name="phone"></ion-input>-->
+<!--</ion-item>-->
+
+<!--<ion-item *ngIf="!smsConfirmation  && tryCount<3">-->
+<!--<ion-label fixed>شماره همراه</ion-label>-->
+<!--<ion-input type="number" text-left [(ngModel)]="user.username" name="phone"></ion-input>-->
+<!--</ion-item>-->
+
+<!--<ion-item *ngIf="tryCount>0 || smsConfirmation" text-center>-->
+<!--<p text-center>اگر پس از سی ثانیه کد فعال سازی<br>-->
+<!--را دریافت نکردید دوباره امتحان کنید {{timer}}</p>-->
+
+<!--</ion-item>-->
+
+<!--<ion-item *ngIf="tryCount==3" text-center>-->
+<!--<p>لطفا کد {{smsCode}} را به شماره {{lineNumber}}<br>-->
+<!--ارسال نمایید و سپس دکمه فرستادم را بفشارید</p>-->
+<!--</ion-item>-->
+
+
+<!--</ion-list>-->
+<!--<div text-center>-->
+<!--<button ion-button color="light" style="background-color: #54C5D0" round class="loginButton"-->
+<!--*ngIf="smsConfirmation || tryCount>0 && tryCount!==3"-->
+<!--(click)="doSignup(user)"-->
+<!--&gt;<span>ارسال کد</span>-->
+<!--</button>-->
+<!--<button ion-button color="light" style="background-color: #54C5D0" round class="loginButton"-->
+<!--*ngIf="!smsConfirmation  && tryCount==0"-->
+<!--(click)="getComfirmSms(user)" [disabled]="!user.username"><span>ورود</span>-->
+<!--</button>-->
+<!--<button ion-button color="light" style="background-color: #54C5D0" round class="loginButton"-->
+<!--*ngIf="tryCount>0 && tryCount<3 &&restart  "-->
+<!--(click)="getComfirmSms(user)" [disabled]="!user.username"><span>تلاش مجدد</span>-->
+<!--</button>-->
+<!--<button ion-button color="light" small style="background-color: #54C5D0" round class="loginButton"-->
+<!--*ngIf="smsSended"-->
+<!--(click)="sended(user)"><span>فرستادم</span>-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</ion-row>-->
+
+<!--</ion-content>-->
+<!--*******************************************************************************-->
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <img src="./assets/img/avanava.jpg" class="logo">
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button block clear style="background-color: #54C5D0;color:white!important"
+                (tap)="showConfirm()">
+          ثبت نام
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button block clear style="background-color: #54C5D0;color:white!important"
+                (tap)="showPage('login')">
+          ورود
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="mode === 'signUp'" text-center>
+      <ion-col text-center>
+        <form (ngSubmit)="onSignup()">
+          <div padding>
+            <ion-item>
+              <ion-label fixed>شماره همراه</ion-label>
+              <ion-input type="number" placeholder="09xxxxxxxxx" text-left
+                         [(ngModel)]="user.username" name="phone"></ion-input>
+            </ion-item>
+
+            <!--<ion-item>-->
+              <!--<ion-label fixed>رمز عبور</ion-label>-->
+              <!--<ion-input placeholder="یک رمز 5تا10رقمی وارد کنید" type="password"-->
+                         <!--text-left [(ngModel)]="user.password" name="password"></ion-input>-->
+            <!--</ion-item>-->
+
+            <!--<ion-item>-->
+              <!--<ion-label fixed>تکرار رمز عبور</ion-label>-->
+              <!--<ion-input type="password" text-left [(ngModel)]="confirmPassword"-->
+                         <!--name="confirmPassword"></ion-input>-->
+            <!--</ion-item>-->
+
+            <ion-item>
+              <ion-label fixed>ایمیل</ion-label>
+              <ion-input type="email" text-left [(ngModel)]="user.email"
+                         placeholder="اختیاری" name="email"></ion-input>
+            </ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col style="color: white!important;">
+                  <ion-item>
+                    <div text-center>
+                      <button ion-button
+                              style="background-color: #54C5D0;height: 10vw;color: white" round
+                              class="loginButton"
+                              type="submit"><span>ثبت نام</span></button>
+                    </div>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngIf="mode === 'login'">
+      <ion-col text-center>
+        <form (ngSubmit)="onLogin()">
+          <div padding>
+
+            <ion-item>
+              <ion-label fixed>شماره همراه</ion-label>
+              <ion-input type="number" text-left [(ngModel)]="user.username"
+                         name="phone"></ion-input>
+            </ion-item>
+
+            <!--<ion-item>-->
+              <!--<ion-label fixed>رمز عبور</ion-label>-->
+              <!--<ion-input type="password" text-left [(ngModel)]="user.password"-->
+                         <!--name="phone"></ion-input>-->
+            <!--</ion-item>-->
+            <ion-grid>
+              <ion-row>
+                <ion-col style="color: white!important;">
+                  <ion-item>
+                    <div text-center>
+
+                      <button ion-button style="background-color: #ff7e00 ;height: 10vw;"
+                              class="loginButton" round
+                              type="submit"><span>ورود به آوا و نوا</span></button>
+                    </div>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </div>
+        </form>
+        <!--<div text-center>-->
+
+        <!--<button ion-button color="light" round class="loginButton" style="background-color: #54C5D0" (tap)="forgetPass()"><span>فراموشی رمز عبور</span></button>-->
+        <!--</div>-->
+        <!--<div text-center *ngIf="getPassword">-->
+
+        <!--<button ion-button color="light" round class="loginButton" style="background-color: #54C5D0"><span>دریافت رمز عبور جدید</span></button>-->
+        <!--</div>-->
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>

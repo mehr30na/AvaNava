@@ -1,0 +1,67 @@
+<!--
+  Generated template for the MyDownloadsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<app-header></app-header>
+
+
+<ion-content>
+
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+  <!--<ion-refresher-content></ion-refresher-content>-->
+  <!--</ion-refresher>-->
+
+  <ion-row>
+    <ion-col col-12 style="text-align: right;" class="felxCenter">
+      <ion-item no-lines no-padding no-margin>
+        <h2 class="text-heading">روایت ادبیات کهن</h2>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-card *ngFor="let album1 of myDownloadslist" class="cardTile" (tap)="openItemList(album1.id,'')">
+      <img-loader [src]="globalUrl+album1.imageURL"
+                  useImg fallback="./assets/img/offlinePlaceholder.png"
+                  fallbackAsPlaceholder="true"
+                  spinner="true"
+      ></img-loader>
+      <!--<img src="./assets/img/offlinePlaceholder.png" *ngIf="!isOnline">-->
+      <ion-card-content>
+        <ion-card-title class="card-title overflow" text-center>
+          {{album1.title}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+  <ion-item></ion-item>
+
+  <ion-row>
+    <ion-col col-12 style="text-align: right;" class="felxCenter">
+      <ion-item no-lines no-padding no-margin>
+        <h2 class="text-heading">موسیقی</h2>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-card *ngFor="let album2 of myBeepDownloadslist" class="cardTile"
+              (tap)="openItemList(album2.id,'beeptunes')">
+      <img-loader [src]="album2.primaryImage"
+                  useImg fallback="./assets/img/offlinePlaceholder.png"
+                  fallbackAsPlaceholder="true"
+                  spinner="true"
+      ></img-loader>
+      <!--<img src="./assets/img/offlinePlaceholder.png" *ngIf="!isOnline">-->
+      <ion-card-content>
+        <ion-card-title class="card-title overflow" text-center>
+          {{album2.name}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+  <ion-item></ion-item>
+
+</ion-content>

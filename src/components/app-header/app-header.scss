@@ -1,0 +1,42 @@
+app-header {
+
+  color: white;
+
+  //ion-icon {
+  //  font-size: 3vh !important;
+  //}
+
+  .toolbar-background {
+    border-color: rgba(255, 255, 255, 0) !important;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .bar-button-default {
+    color: white;
+    background-color: #ff9200;
+    margin-right: -2vh;
+    font-size: 2.5vh !important;
+  }
+
+  .heading {
+    text-align: center;
+    background-color: #ff9200;
+    height: 6.5vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+
+  .playerImage {
+    //border: 1px solid black;
+    width: 10vh;
+    margin-top: 1vh;
+    height: 8.5vh;
+    z-index: 1000;
+  }
+
+  ion-col {
+    //border: 1px solid black;
+  }
+}

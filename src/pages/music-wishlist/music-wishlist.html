@@ -1,0 +1,59 @@
+<!--
+  Generated template for the MusicWishlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<app-header></app-header>
+
+
+<ion-content>
+
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+  <!--<ion-refresher-content></ion-refresher-content>-->
+  <!--</ion-refresher>-->
+
+  <!--[virtualScroll]="wishList"-->
+  <ion-list>
+    <ion-card *ngFor="let wish of wishList">
+
+      <ion-item-sliding #item>
+
+        <ion-item style="height: 8vh" (tap)="goToOtherPage(wish.id,'beeptunes',wish.financialStatus)"
+                  *ngIf="wish.name">
+          <ion-row>
+            <ion-col col-2><img [src]="wish.image"></ion-col>
+            <ion-col col-9>{{wish.name}}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item style="height: 8vh" (tap)="goToOtherPage(wish.id,'',wish.financialStatus)" *ngIf="wish.title">
+          <ion-row>
+            <ion-col col-2>
+              <img-loader [src]="globalUrl+wish.poemGallery.imageURL"
+                          useImg fallback="./assets/img/offlinePlaceholder.png"
+                          fallbackAsPlaceholder="true"
+                          spinner="true"
+              ></img-loader>
+            </ion-col>
+            <ion-col col-9>{{wish.title}}</ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" icon-only (tap)="removeWishList(wish)"
+                  style="width:10vh;z-index: 9999">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+
+        <!--<ion-item-options side="left">-->
+        <!--<button ion-button expandable color="danger" (click)="removeWishList(item)" style="width: 15vh">حذف</button>-->
+        <!--</ion-item-options>-->
+
+      </ion-item-sliding>
+    </ion-card>
+    <ion-item no-lines></ion-item>
+  </ion-list>
+
+</ion-content>
